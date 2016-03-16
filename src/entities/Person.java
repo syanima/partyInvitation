@@ -3,12 +3,12 @@ package entities;
 import nameFormats.FormatRepresentation;
 
 public class Person {
-    protected Name name;
-    protected Address address;
-    protected String gender;
-    protected int age;
+    private Name name;
+    private Address address;
+    private String gender;
+    private Age age;
 
-    public Person(Name name, Address address, String gender, int age) {
+    public Person(Name name, Address address, String gender, Age age) {
         this.name = name;
         this.address = address;
         this.gender = gender;
@@ -19,12 +19,20 @@ public class Person {
         return String.format("%s %s", Gender.valueOf(gender), name.formatUsing(rep));
     }
 
-    public boolean isOfOrAboveAge(int givenAge) {
-        return this.age >= givenAge;
+//    public String ageOfPerson() {
+//        return age.toString();
+//    }
+
+    public boolean isOlderThan(int givenAge) {
+        return age.checkingAgeIsGreatorOrNot(givenAge);
     }
 
     public boolean isOfThisCountry(String givenCountry){
         return address.isResidentOfThisCountry(givenCountry);
     }
+
+//    public String address() {
+//        return address.toString();
+//    }
 
 }

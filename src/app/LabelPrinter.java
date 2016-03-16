@@ -2,6 +2,7 @@ package app;
 
 import cmdArgSeparator.CmdArgSeparator;
 import entities.Person;
+import guestFilter.FilterGuestList;
 import guestGenerator.GuestListParser;
 import printingUtilities.ConsolePrinter;
 import printingUtilities.Printer;
@@ -12,13 +13,13 @@ public class LabelPrinter {
 
     public static void main(String[] args) throws IOException {
         CmdArgSeparator arguments = new CmdArgSeparator(args);
-        String[] option = arguments.options;
-        String [] files = arguments.nonOptions;
+        String[] option = arguments.optionSeparator();
+        String [] files = arguments.fileSeparator();
         String fileData = readFile(files[0]);
         ArrayList<Person> guestList = new GuestListParser(fileData).parse();
+        FilterGuestList eligibleGuests = new FilterGuestList(arguments.getFilters(),guestList);
         Printer printingList = new ConsolePrinter();
-        printingList.print(guestList,option[0]);
-
+        printingList.print(eligibleGuests.getFilteredGuest(),option[0]);
     }
 
     private static String readFile(String fileName) throws IOException {

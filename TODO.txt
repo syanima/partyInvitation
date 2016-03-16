@@ -44,8 +44,8 @@ java InvitationCard -f records.txt
 
 
 ("-h"| "help", "Show help");
-("-f"| "firstLast", "First last name")
-("-l"| "lastFirst", "Last first name");
+("-i"| "informal", "First last name")
+("-f"| "formal", "Last first name");
 ("-c"| "nameWithCountry", "Name with Country");
 
 

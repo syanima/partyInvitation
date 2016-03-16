@@ -1,5 +1,5 @@
 package nameFormats;
 
 public interface FormatRepresentation {
-    String formatName(String firstName, String sirName);
+    String formatName(String firstName, String surName);
 }

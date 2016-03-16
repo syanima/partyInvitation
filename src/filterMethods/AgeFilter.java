@@ -11,6 +11,6 @@ public class AgeFilter implements Filter {
 
     @Override
     public boolean isAValidGuest(Person guest) {
-        return guest.isOfOrAboveAge(age);
+        return guest.isOlderThan(age);
     }
 }
